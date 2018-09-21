@@ -1,0 +1,100 @@
+{
+  "name": "ekomessagingsdkwebsample",
+  "version": "1.2.0",
+  "private": true,
+  "scripts": {
+    "lint": "eslint . --format table",
+    "start": "node scripts/start.js",
+    "build": "node scripts/build.js",
+    "test": "node scripts/test.js --env=jsdom"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "linters": {
+      "*.{js,jsx}": [
+        "eslint --fix",
+        "git add --force"
+      ],
+      "*.{json,md}": [
+        "prettier --write",
+        "git add --force"
+      ]
+    }
+  },
+  "dependencies": {
+    "antd": "^3.25.2",
+    "autoprefixer": "7.1.6",
+    "babel-preset-react-app": "^3.1.1",
+    "babel-runtime": "6.26.0",
+    "case-sensitive-paths-webpack-plugin": "2.1.1",
+    "chalk": "1.1.3",
+    "css-loader": "0.28.7",
+    "date-fns": "^1.30.1",
+    "dotenv": "4.0.0",
+    "dotenv-expand": "4.2.0",
+    "eko-sdk": "1.2.0",
+    "file-loader": "1.1.5",
+    "file-saver": "^1.3.8",
+    "fs-extra": "3.0.1",
+    "html-webpack-plugin": "2.29.0",
+    "object-assign": "4.1.1",
+    "postcss-flexbugs-fixes": "3.2.0",
+    "postcss-loader": "2.0.8",
+    "promise": "8.0.1",
+    "raf": "3.4.0",
+    "react": "^16.12.0",
+    "react-dev-utils": "^5.0.0",
+    "react-dom": "^16.12.0",
+    "react-infinite-scroller": "^1.2.4",
+    "style-loader": "0.19.0",
+    "styled-components": "^4.4.1",
+    "sw-precache-webpack-plugin": "0.11.4",
+    "url-loader": "0.6.2",
+    "webpack": "3.8.1",
+    "webpack-dev-server": "2.9.4",
+    "webpack-manifest-plugin": "1.3.2",
+    "whatwg-fetch": "2.0.3"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.2.6",
+    "babel-jest": "^23.4.2",
+    "babel-loader": "^7.1.4",
+    "babel-plugin-root-import": "^5.1.0",
+    "babel-plugin-symlink-import": "^0.1.1",
+    "babel-plugin-transform-builtin-extend": "^1.1.2",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-flow": "^6.23.0",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb": "^17.1.1",
+    "eslint-config-airbnb-base": "^13.2.0",
+    "eslint-config-eko": "^1.0.1",
+    "eslint-config-prettier": "^4.3.0",
+    "eslint-import-resolver-babel-plugin-root-import": "^1.1.1",
+    "eslint-loader": "1.9.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-react": "^7.16.0",
+    "extract-text-webpack-plugin": "3.0.2",
+    "http-proxy-middleware": "^0.19.1",
+    "husky": "^1.3.1",
+    "lint-staged": "^8.2.1",
+    "prettier": "^1.19.1",
+    "standard-version": "^4.4.0"
+  },
+  "standard-version": {
+    "skip": {
+      "commit": true,
+      "bump": true,
+      "tag": true
+    }
+  }
+}
