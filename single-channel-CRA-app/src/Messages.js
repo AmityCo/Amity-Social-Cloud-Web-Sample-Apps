@@ -2,7 +2,7 @@ import { useRef, useState, useEffect } from 'react'
 
 import {
   MessageRepository
-} from 'eko-sdk'
+} from '@amityco/js-sdk'
 
 import Message from './Message'
 

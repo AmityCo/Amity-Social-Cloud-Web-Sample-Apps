@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
-import { ChannelRepository, EkoChannelType } from "eko-sdk";
-import { client } from "./ekoClient";
+import { ChannelRepository, ChannelType } from "@amityco/js-sdk";
+import { client } from "./ascClient";
 
 import NameInput from "./NameInput";
 
@@ -19,11 +19,11 @@ function App() {
       new ChannelRepository()
         .joinChannel({
           channelId,
-          type: EkoChannelType.Standard,
+          type: ChannelType.Standard,
         })
         .once("dataUpdated", () => setConnected(true));
     });
-  })
+  });
 
   return (
     <div className="app">

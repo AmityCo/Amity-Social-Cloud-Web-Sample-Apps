@@ -1,4 +1,4 @@
-import { connectClient } from "./ekoClient";
+import { connectClient } from "./ascClient";
 
 import Input from "./Input";
 

@@ -1,4 +1,4 @@
-import { MessageRepository } from 'eko-sdk'
+import { MessageRepository } from '@amityco/js-sdk'
 
 import Input from './Input'
 
