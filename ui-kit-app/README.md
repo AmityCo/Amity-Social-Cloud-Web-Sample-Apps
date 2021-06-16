@@ -1,6 +1,6 @@
 # Amity Social Cloud's Ui-Kit sample application
 
-[Try me on codesandbox!](https://codesandbox.io/s/github/AmityCo/Amity-Social-Cloud-SDK-Web-Sample-App/tree/main/ui-kit-app)
+[Try me on codesandbox!](https://codesandbox.io/s/github/AmityCo/Amity-Social-Cloud-Web-Sample-Apps/tree/main/ui-kit-app)
 
 ## Stack used
 

@@ -1,6 +1,6 @@
 # Single channel CRA application
 
-[Try me on codesandbox!](https://codesandbox.io/s/github/AmityCo/Amity-Social-Cloud-SDK-Web-Sample-App/tree/main/single-channel-CRA-app)
+[Try me on codesandbox!](https://codesandbox.io/s/github/AmityCo/Amity-Social-Cloud-Web-Sample-Apps/tree/main/single-channel-CRA-app)
 
 ## Stack used
 
