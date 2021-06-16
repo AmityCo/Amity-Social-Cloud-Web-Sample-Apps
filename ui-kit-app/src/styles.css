@@ -1,0 +1,92 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.App {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  font-family: sans-serif;
+}
+
+form.Login {
+  flex: 1 1 auto;
+  display: block;
+  min-width: 20rem;
+  max-width: 50vw;
+  margin: 0 auto;
+  padding: 2rem 2rem 3rem;
+  border: 1px solid #eaeaea;
+  border-radius: 0.25rem;
+  box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.1),
+    0 0.6rem 0.8rem rgba(0, 0, 0, 0.1);
+}
+
+form.Login > * {
+  display: block;
+  width: 100%;
+}
+
+form.Login h1 {
+  margin: 0 0 2rem;
+  padding-right: 2rem;
+  line-height: 1.4;
+  font-size: 1.2rem;
+  font-weight: normal;
+}
+
+form.Login h1 strong {
+  display: block;
+  color: #1054de;
+  font-size: 1.5rem;
+}
+
+form.Login label {
+  margin-bottom: 0.5rem;
+  padding-left: 0.1rem;
+  font-weight: bold;
+  text-transform: capitalize;
+  word-break: none;
+}
+
+form.Login label:after {
+  content: ":";
+}
+
+form.Login input {
+  margin-bottom: 1.7rem;
+  padding: 0.6rem 0.7rem 0.5rem;
+  border: 1px solid #cacaca;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+}
+
+form.Login button {
+  margin-top: 2rem;
+  padding: 0.8rem 1rem;
+  border: none;
+  border-radius: 0.25rem;
+  background: #1054de;
+  cursor: pointer;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: all 0.3s;
+}
+
+form.Login button:hover {
+  opacity: 0.8;
+}
