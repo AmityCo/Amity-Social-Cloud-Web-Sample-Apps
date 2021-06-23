@@ -6,7 +6,7 @@ import { client } from "./ascClient";
 import NameInput from "./NameInput";
 
 import Messages from "./Messages";
-import MessageInput from "./MessageInput";
+import MessageComposer from "./MessageComposer";
 
 // channel for demo
 const channelId = "simple-chat-demo";
@@ -15,13 +15,13 @@ function App() {
   const [connected, setConnected] = useState(false);
 
   useEffect(() => {
-    client.once("connectionStatusChanged", () => {
-      new ChannelRepository()
-        .joinChannel({
-          channelId,
-          type: ChannelType.Standard,
-        })
-        .once("dataUpdated", () => setConnected(true));
+    client.once("connectionStatusChanged", async () => {
+      await ChannelRepository.joinChannel({
+        channelId,
+        type: ChannelType.Standard
+      });
+
+      setConnected(true);
     });
   });
 
@@ -31,7 +31,7 @@ function App() {
       {connected && (
         <div className="layout">
           <Messages channelId={channelId} />
-          <MessageInput channelId={channelId} />
+          <MessageComposer channelId={channelId} />
         </div>
       )}
     </div>

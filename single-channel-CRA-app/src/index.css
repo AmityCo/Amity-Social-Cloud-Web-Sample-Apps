@@ -2,7 +2,8 @@
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   position: relative;
   display: block;
   overflow: hidden;
@@ -11,14 +12,32 @@ html, body {
   margin: 0;
   padding: 0;
 
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#root, .app, .layout {
+.svg-icon {
+  width: 1em;
+  height: 1em;
+}
+
+.svg-icon path,
+.svg-icon polygon,
+.svg-icon rect {
+  fill: currentColor;
+}
+
+.svg-icon circle {
+  stroke: currentColor;
+  stroke-width: 1;
+}
+
+#root,
+.app,
+.layout {
   width: 100%;
   height: 100%;
 }
@@ -26,19 +45,141 @@ html, body {
 .layout {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: auto min-content;
+  grid-template-rows: auto max-content;
 }
 
 .messages {
+  overflow: auto;
   display: flex;
   flex-direction: column-reverse;
-  padding: 1rem
 }
 
 .input {
   padding: 1rem;
   border: none;
-  border-top: 1px solid #dfdfdf;
   font-size: 1rem;
   outline: none;
+}
+
+.message {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  padding: 0.5rem 1rem;
+}
+
+.message:hover {
+  background: #f4f4f4;
+}
+
+.message .title {
+  display: flex;
+  margin: 0 0 0.5rem 0.25rem;
+}
+
+.message.text {
+  align-items: baseline;
+}
+
+.message.image img {
+  max-width: 80%;
+  max-height: 200px;
+  object-fit: contain;
+  object-position: center;
+  border: 1px solid #eaeaea;
+  border-radius: 0.5rem;
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAKElEQVQoU2P8+vXrfwY08O3bN3QhBsahoPD169cYnuHi4sL0zBBQCADrkTUhFCttGgAAAABJRU5ErkJggg==)
+    repeat;
+}
+
+.composer {
+  display: grid;
+  grid-template-areas: "preview preview" "input buttons";
+  grid-template-rows: min-content min-content;
+  grid-template-columns: auto min-content;
+  border-top: 1px solid #dfdfdf;
+}
+
+.composer > .preview {
+  grid-area: preview;
+}
+
+.composer > .input {
+  grid-area: input;
+}
+
+.composer .buttons {
+  grid-area: buttons;
+  display: flex;
+}
+
+.uploader {
+  padding: 1rem;
+  border: none;
+  background: #fff;
+  cursor: pointer;
+}
+
+.uploader:hover {
+  background: #f4f4f4;
+}
+
+.uploader input {
+  position: absolute;
+  top: 100%;
+  right: 100%;
+}
+
+.preview {
+  justify-self: start;
+  position: relative;
+  padding: 0.5rem;
+}
+
+.preview img {
+  max-width: 100%;
+  max-height: 4rem;
+  object-fit: contain;
+  object-position: center;
+  border: 1px solid #eaeaea;
+  border-radius: 0.5rem;
+}
+
+.preview button {
+  z-index: 2;
+  position: absolute;
+  top: 0.9rem;
+  right: 0.9rem;
+  background: rgba(0, 0, 0, 0.2);
+  border: none;
+  border-radius: 1rem;
+  cursor: pointer;
+  transform: scale(0.6);
+  transform-origin: top right;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.preview button:hover {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.syncstate {
+  margin-left: 1ch;
+  font-size: 0.8rem;
+  color: #aaa;
+}
+
+.message .file {
+  display: inline-block;
+  padding: 0.75rem;
+  background: #fff;
+  border: 1px solid #eaeaea;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.message .file strong {
+  display: block;
 }
