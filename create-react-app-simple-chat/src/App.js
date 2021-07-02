@@ -1,41 +1,31 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
-import { ChannelRepository, ChannelType } from "@amityco/js-sdk";
-import { client } from "./ascClient";
+import { Login } from "./pages/Login";
+import { Main } from "./pages/Main";
 
-import NameInput from "./NameInput";
+import { connectClient } from "./ascClient";
 
-import Messages from "./Messages";
-import MessageComposer from "./MessageComposer";
-
-// channel for demo
-const channelId = "simple-chat-demo";
-
-function App() {
+export function App() {
   const [connected, setConnected] = useState(false);
+  const [userId, setUserId] = useState(localStorage.getItem("userId"));
+
+  const onConnect = async (userId, persistent) => {
+    await connectClient(userId);
+    setConnected(true);
+    setUserId(userId);
+
+    if (persistent) localStorage.setItem("userId", userId);
+  };
 
   useEffect(() => {
-    client.once("connectionStatusChanged", async () => {
-      await ChannelRepository.joinChannel({
-        channelId,
-        type: ChannelType.Standard
-      });
-
-      setConnected(true);
-    });
-  });
+    const userId = localStorage.getItem("userId");
+    if (userId) onConnect(userId);
+  }, []);
 
   return (
     <div className="app">
-      {!connected && <NameInput />}
-      {connected && (
-        <div className="layout">
-          <Messages channelId={channelId} />
-          <MessageComposer channelId={channelId} />
-        </div>
-      )}
+      {!connected && !userId && <Login onConnect={onConnect} />}
+      {connected && userId && <Main />}
     </div>
   );
 }
-
-export default App;

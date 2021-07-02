@@ -3,9 +3,10 @@ import { useEffect, useState } from "react";
 import { FileRepository } from "@amityco/js-sdk";
 
 import prettyBytes from "pretty-bytes";
-import { download } from "./utils";
 
-function MessageFile({ data: { caption } = {}, fileId }) {
+import { AttachmentIcon } from "../Icons";
+
+export function FileContent({ data: { caption } = {}, fileId }) {
   const [model, setModel] = useState();
 
   useEffect(() => {
@@ -20,18 +21,11 @@ function MessageFile({ data: { caption } = {}, fileId }) {
 
   if (!model) return null;
 
-  const downloadFile = () => {
-    if (!model || !model.fileUrl || model.fileUrl.startsWith("blob:")) return;
-
-    download(model.fileUrl, model.attributes.name);
-  };
-
   return (
-    <div className="file" onClick={downloadFile}>
+    <a className="FileContent" href={model.fileUrl} download>
+      <AttachmentIcon />
       <strong>{model.attributes.name}</strong>
-      {prettyBytes(model.attributes.size)}
-    </div>
+      <span>{prettyBytes(model.attributes.size)}</span>
+    </a>
   );
 }
-
-export default MessageFile;

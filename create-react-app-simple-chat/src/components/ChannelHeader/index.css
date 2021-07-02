@@ -1,0 +1,11 @@
+.ChannelHeader {
+  width: 100%;
+  padding: 1rem;
+  background: #fff;
+  border-bottom: 1px solid #ccd0d5;
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0.2);
+}
+
+.ChannelHeader h3 {
+  margin: 0;
+}

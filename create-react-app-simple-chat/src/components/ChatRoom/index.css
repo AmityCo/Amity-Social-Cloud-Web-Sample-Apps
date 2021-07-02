@@ -1,0 +1,14 @@
+.ChatRoom {
+  display: flex;
+  flex-direction: column;
+}
+
+.ChatRoom .ChannelHeader,
+.ChatRoom .MessageComposer {
+  flex: 0 0 auto;
+}
+
+.ChatRoom .MessageList {
+  flex: 1 1 auto;
+  overflow: auto;
+}

@@ -1,9 +1,11 @@
 import { useRef } from "react";
+import "./index.css";
+
 import { useUnmount } from "react-use";
 
 import { FileRepository } from "@amityco/js-sdk";
 
-export default function Uploader({ children, onChange = () => {}, ...rest }) {
+export function Uploader({ children, onChange = () => {}, ...rest }) {
   const file = useRef();
 
   useUnmount(() => {
@@ -22,7 +24,7 @@ export default function Uploader({ children, onChange = () => {}, ...rest }) {
   };
 
   return (
-    <label className="uploader">
+    <label className="Uploader">
       {children}
       <input type="file" {...rest} onChange={handleFile} />
     </label>

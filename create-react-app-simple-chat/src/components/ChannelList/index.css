@@ -1,0 +1,9 @@
+.ChannelList {
+  width: 100%;
+  padding: 0 1rem 1rem;
+  border-top: 1px solid #ccd0d5;
+}
+
+.ChannelList.top {
+  border-top: 1px solid transparent;
+}

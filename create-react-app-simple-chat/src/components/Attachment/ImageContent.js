@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 import { FileRepository } from "@amityco/js-sdk";
 
-function MessageImage({ data: { caption } = {}, fileId }) {
+export function ImageContent({ fileId }) {
   const [fileUrl, setFileUrl] = useState();
 
   useEffect(() => {
@@ -23,16 +23,5 @@ function MessageImage({ data: { caption } = {}, fileId }) {
     ? fileUrl
     : `${fileUrl}?size=medium`;
 
-  return (
-    <div>
-      <img src={sizedUrl} height="200" alt={caption} />
-      {caption && (
-        <div>
-          <em>{caption}</em>
-        </div>
-      )}
-    </div>
-  );
+  return <img className="ImageContent" src={sizedUrl} alt="" />;
 }
-
-export default MessageImage;
