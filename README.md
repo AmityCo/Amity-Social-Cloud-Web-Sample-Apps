@@ -7,4 +7,4 @@
 This repository contains a variety of sample apps to fit all the typical use-cases you may encounter. Each folder is an independent application to try out!
 
 - [Simple chat app with Create React Application](./tree/main/create-react-app-simple-chat)
-- [Simple chat app with VueJS](./tree/main/vue2-simple-chat)
+- [Simple chat app with VueJS (v2)](./tree/main/vue2-simple-chat)
