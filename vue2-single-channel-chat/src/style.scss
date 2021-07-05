@@ -1,0 +1,25 @@
+// Import initial variables
+@import "~bulma/sass/utilities/initial-variables";
+@import "~bulma/sass/utilities/functions";
+
+// Import the rest of Bulma
+@import "~bulma/bulma";
+
+// Import Buefy
+@import "~buefy/src/scss/buefy";
+
+.svg-icon {
+  width: 1em;
+  height: 1em;
+}
+
+.svg-icon path,
+.svg-icon polygon,
+.svg-icon rect {
+  fill: currentColor;
+}
+
+.svg-icon circle {
+  stroke: currentColor;
+  stroke-width: 1;
+}

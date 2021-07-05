@@ -7,10 +7,16 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
-    "@amityco/js-sdk": "5.2.3",
+    "@amityco/js-sdk": "^5.2.3",
+    "@fortawesome/fontawesome-svg-core": "^1.2.35",
+    "@fortawesome/free-solid-svg-icons": "^5.15.3",
+    "@fortawesome/vue-fontawesome": "^2.0.2",
+    "@twuni/emojify": "^1.0.2",
+    "buefy": "^0.9.8",
+    "bulma": "^0.9.3",
     "core-js": "^3.6.5",
+    "emoji-mart-vue-fast": "^10.0.1",
     "pretty-bytes": "^5.6.0",
-    "tiny-human-time": "^1.2.0",
     "vue": "^2.6.11"
   },
   "devDependencies": {
