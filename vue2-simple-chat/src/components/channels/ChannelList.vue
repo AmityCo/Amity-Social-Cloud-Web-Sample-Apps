@@ -37,12 +37,14 @@ export default {
             displayName,
             avatarFileId,
             lastActivity,
+            memberCount,
             unreadCount,
            }) => ({ 
             channelId,
             displayName,
             avatarFileId,
             lastActivity,
+            memberCount,
             unreadCount,
            }))
         });

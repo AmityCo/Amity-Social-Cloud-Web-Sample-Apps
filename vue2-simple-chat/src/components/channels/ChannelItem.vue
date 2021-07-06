@@ -4,7 +4,7 @@
       <image-component v-if="avatarFileId" :fileId="avatarFileId" />
     </div>
     <div class="displayname">{{ channelName }}</div>
-    <div class="lastactivity">{{ channelActivity }}</div>
+    <div class="metadata">{{ channelActivity }} • {{ memberCount }} <member-icon /></div>
     <div v-if="unreadCount" class="unreadcount">{{ unreadCount}}</div>
   </div>
 </template>
@@ -14,16 +14,19 @@ import humanize from "tiny-human-time";
 
 import ImageComponent from '@/components/Image';
 
+import MemberIcon from '@/components/icons/MemberIcon';
+
 export default {
   inheritAttrs: false,
 
-  components: { ImageComponent },
+  components: { ImageComponent, MemberIcon },
 
   props: [
     'channelId',
     'displayName',
     'avatarFileId',
     'lastActivity',
+    'memberCount',
     'unreadCount',
     'active',
   ],
@@ -42,7 +45,7 @@ export default {
   grid-template-rows: 1fr 1fr;
   grid-template-areas:
     "avatar displayname unreadcount"
-    "avatar lastactivity unreadcount";
+    "avatar metadata unreadcount";
 
   grid-gap: 0 0.5rem;
   align-items: center;
@@ -63,6 +66,7 @@ export default {
 
 .channel-item .avatar {
   grid-area: avatar;
+  overflow: hidden;
   width: 3rem;
   height: 3rem;
   margin-right: 0.25rem;
@@ -77,9 +81,9 @@ export default {
   white-space: nowrap;
 }
 
-.channel-item .lastactivity {
+.channel-item .metadata {
   overflow: hidden;
-  grid-area: lastactivity;
+  grid-area: metadata;
   font-size: 0.8rem;
   color: #888;
   text-overflow: ellipsis;
@@ -99,7 +103,7 @@ export default {
 
 @media (min-width: 480px) {
   .channel-item .displayname,
-  .channel-item .lastactivity,
+  .channel-item .metadata,
   .channel-item .unreadcount {
     display: none;
   }
@@ -107,9 +111,12 @@ export default {
 
 @media (min-width: 720px) {
   .channel-item .displayname,
-  .channel-item .lastactivity,
   .channel-item .unreadcount {
     display: block;
+  }
+  
+  .channel-item .metadata {
+    display: flex;
   }
 }
 

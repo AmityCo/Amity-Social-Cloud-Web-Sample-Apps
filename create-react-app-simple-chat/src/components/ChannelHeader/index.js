@@ -3,6 +3,8 @@ import "./index.css";
 
 import { ChannelRepository } from "@amityco/js-sdk";
 
+import { MemberIcon } from "../Icons";
+
 export function ChannelHeader({ channelId }) {
   const [channel, setChannel] = useState();
 
@@ -18,6 +20,12 @@ export function ChannelHeader({ channelId }) {
   return (
     <div className="ChannelHeader">
       <h3>{channel?.displayName ?? channel?.channelId}</h3>
+      {channel?.memberCount > 0 && (
+        <>
+          {" • "}
+          {channel?.memberCount} <MemberIcon />
+        </>
+      )}
     </div>
   );
 }
