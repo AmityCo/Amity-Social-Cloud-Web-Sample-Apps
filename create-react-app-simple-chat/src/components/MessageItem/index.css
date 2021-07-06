@@ -14,6 +14,7 @@
 
 .MessageItem .Avatar {
   grid-area: avatar;
+  overflow: hidden;
   width: 2rem;
   height: 2rem;
   background: #ebecef;
@@ -40,7 +41,6 @@
 
 .MessageItem .Content {
   grid-area: message;
-  justify-self: end;
   margin: 0.5rem 0 0.25rem;
   border-radius: 0 0.5rem 0.5rem 0.5rem;
   overflow: hidden;
@@ -124,6 +124,7 @@
 
 .MessageItem.self .Content {
   border-radius: 0.5rem 0 0.5rem 0.5rem;
+  justify-self: end;
 }
 
 .MessageItem.self .Text,

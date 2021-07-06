@@ -85,6 +85,7 @@ export default {
 
 .message-item .avatar {
   grid-area: avatar;
+  overflow: hidden;
   width: 2rem;
   height: 2rem;
   background: #ebecef;
@@ -98,7 +99,6 @@ export default {
 
 .message-item .content {
   grid-area: message; 
-  justify-self: end;
 }
 
 .message-item .metadata {
@@ -136,6 +136,7 @@ export default {
 
 .message-item.self .content {
   border-radius: 0.5rem 0 0.5rem 0.5rem;
+  justify-self: end;
 }
 
 </style>

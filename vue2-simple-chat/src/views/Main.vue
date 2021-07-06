@@ -43,6 +43,8 @@ export default {
           channelId: value,
           type: ChannelType.Community,
         });
+
+        this.overlay = true;
       },
       immediate: true,
     },

@@ -23,6 +23,11 @@
   font-size: 1.5rem;
 }
 
+.Main .ChannelBrowser {
+  position: relative;
+  z-index: 9;
+}
+
 .Main.overlay .ChannelBrowser {
   display: none;
 }
