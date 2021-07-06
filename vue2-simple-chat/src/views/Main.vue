@@ -18,6 +18,7 @@ import {
   ChannelRepository,
   ChannelMembershipRepository,
   ChannelType,
+  ChannelMembership,
 } from "@amityco/js-sdk";
 
 const DEFAULT_CHANNEL_ID = "simple-chat-demo";
@@ -27,8 +28,14 @@ export default {
 
   watch: {
     channelId: {
-      async handler(value) {
-        const channelUser = new ChannelMembershipRepository(this.channelId);
+      async handler(newVal, oldVal) {
+        if (oldVal) {
+          try {
+            await ChannelRepository.stopReading(oldVal);
+          } catch (err) {}
+        }
+
+        const channelUser = new ChannelMembershipRepository(newVal);
         const channelMembership = channelUser.myMembership;
 
         const callback = async (model) => {
@@ -39,10 +46,19 @@ export default {
         channelMembership?.on("dataUpdated", callback);
         channelMembership?.model && callback(channelMembership.model);
 
-        await ChannelRepository.joinChannel({
-          channelId: value,
-          type: ChannelType.Community,
-        });
+        const { membership } = channelMembership?.model ?? {}
+
+        if (membership === ChannelMembership.Banned) {
+          this.channelId = DEFAULT_CHANNEL_ID;
+          return;
+        } else if (membership !== ChannelMembership.Member) {
+          await ChannelRepository.joinChannel({
+            channelId: newVal,
+            type: ChannelType.Community,
+          });
+        }
+
+        await ChannelRepository.startReading(newVal);
 
         this.overlay = true;
       },

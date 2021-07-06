@@ -1,7 +1,12 @@
 import React, { useState } from "react";
 import "./index.css";
 
-import { ChannelRepository, ChannelType } from "@amityco/js-sdk";
+import {
+  ChannelRepository,
+  ChannelMembershipRepository,
+  ChannelType,
+  ChannelMembership,
+} from "@amityco/js-sdk";
 
 import { ChannelBrowser } from "../../components/ChannelBrowser";
 import { ChatRoom } from "../../components/ChatRoom";
@@ -18,10 +23,30 @@ export function Main() {
       await ChannelRepository.stopReading(channelId);
     } catch (err) {}
 
-    await ChannelRepository.joinChannel({
-      channelId: value,
-      type: ChannelType.Standard,
+    const channelUser = new ChannelMembershipRepository(value);
+    const channelMembership = channelUser.myMembership;
+
+    await new Promise((resolve) => {
+      const callback = async (model) => {
+        channelMembership.dispose();
+        resolve();
+      };
+
+      channelMembership?.on("dataUpdated", callback);
+      channelMembership?.model && callback(channelMembership.model);
     });
+
+    const { membership } = channelMembership?.model ?? {};
+
+    if (membership === ChannelMembership.Banned) {
+      setChannelId(DEFAULT_CHANNEL_ID);
+      return;
+    } else if (membership !== ChannelMembership.Member) {
+      await ChannelRepository.joinChannel({
+        channelId: value,
+        type: ChannelType.Community,
+      });
+    }
 
     await ChannelRepository.startReading(value);
     setChannelId(value);
