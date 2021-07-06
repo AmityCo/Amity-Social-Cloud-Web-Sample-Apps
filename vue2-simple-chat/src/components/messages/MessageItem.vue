@@ -139,4 +139,8 @@ export default {
   justify-self: end;
 }
 
+.message-item.self .metadata {
+  justify-self: end;
+}
+
 </style>

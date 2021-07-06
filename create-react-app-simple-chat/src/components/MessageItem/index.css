@@ -126,6 +126,9 @@
   border-radius: 0.5rem 0 0.5rem 0.5rem;
   justify-self: end;
 }
+.MessageItem.self .Metadata {
+  justify-self: end;
+}
 
 .MessageItem.self .Text,
 .MessageItem.self .FileContent {
