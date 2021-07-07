@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./index.css";
 
 import {
@@ -18,37 +18,22 @@ export function Main() {
   const [channelId, setChannelId] = useState(DEFAULT_CHANNEL_ID);
   const [overlay, setOverlay] = useState(true);
 
-  const onChange = async (value) => {
+  useEffect(() => {
+    ;(async () => {
+      await ChannelRepository.joinChannel({
+        channelId,
+        type: ChannelType.Standard,
+      });
+  
+      await ChannelRepository.startReading(channelId);
+    })()
+  }, [channelId]);
+
+  const handleChange = async (value) => {
     try {
       await ChannelRepository.stopReading(channelId);
     } catch (err) {}
 
-    const channelUser = new ChannelMembershipRepository(value);
-    const channelMembership = channelUser.myMembership;
-
-    await new Promise((resolve) => {
-      const callback = async (model) => {
-        channelMembership.dispose();
-        resolve();
-      };
-
-      channelMembership?.on("dataUpdated", callback);
-      channelMembership?.model && callback(channelMembership.model);
-    });
-
-    const { membership } = channelMembership?.model ?? {};
-
-    if (membership === ChannelMembership.Banned) {
-      setChannelId(DEFAULT_CHANNEL_ID);
-      return;
-    } else if (membership !== ChannelMembership.Member) {
-      await ChannelRepository.joinChannel({
-        channelId: value,
-        type: ChannelType.Community,
-      });
-    }
-
-    await ChannelRepository.startReading(value);
     setChannelId(value);
   };
 
@@ -58,7 +43,7 @@ export function Main() {
         {overlay ? "..." : "╳"}
       </button>
 
-      <ChannelBrowser activeChannelId={channelId} onChange={onChange} />
+      <ChannelBrowser activeChannelId={channelId} onChange={handleChange} />
       <ChatRoom channelId={channelId} />
     </div>
   );

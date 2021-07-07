@@ -35,28 +35,10 @@ export default {
           } catch (err) {}
         }
 
-        const channelUser = new ChannelMembershipRepository(newVal);
-        const channelMembership = channelUser.myMembership;
-
-        const callback = async (model) => {
-          this.loading = (model.membership !== "member");
-          channelMembership.dispose();
-        };
-
-        channelMembership?.on("dataUpdated", callback);
-        channelMembership?.model && callback(channelMembership.model);
-
-        const { membership } = channelMembership?.model ?? {}
-
-        if (membership === ChannelMembership.Banned) {
-          this.channelId = DEFAULT_CHANNEL_ID;
-          return;
-        } else if (membership !== ChannelMembership.Member) {
-          await ChannelRepository.joinChannel({
-            channelId: newVal,
-            type: ChannelType.Community,
-          });
-        }
+        await ChannelRepository.joinChannel({
+          channelId: newVal,
+          type: ChannelType.Community,
+        });
 
         await ChannelRepository.startReading(newVal);
 
