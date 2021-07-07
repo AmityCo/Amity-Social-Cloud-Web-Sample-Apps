@@ -18,3 +18,8 @@ You will be able to see the typical use of live objects and live collections wor
 1. clone the repo
 2. `yarn`
 3. `yarn start`
+
+## Screenshots
+
+![login screen](./screenshots/react-login.png)
+![main app](./screenshots/react-chat.png)
