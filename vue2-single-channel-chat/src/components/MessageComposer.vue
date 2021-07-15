@@ -46,6 +46,7 @@ export default {
   }),
 
   beforeDestroy() {
+    this.liveMessage?.dispose();
     this.liveFile?.dispose();
   },
 
@@ -59,24 +60,30 @@ export default {
     },
 
     send() {
+      this.liveMessage?.dispose();
+
       if (!this.file) {
-        MessageRepository.createTextMessage({
+        this.liveMessage = MessageRepository.createTextMessage({
           channelId: this.channelId,
           text: this.text,
         });
       } else if (this.file.type === "image") {
-        MessageRepository.createImageMessage({
+        this.liveMessage = MessageRepository.createImageMessage({
           channelId: this.channelId,
           imageId: this.file.fileId,
           caption: this.text,
         });
       } else if (this.file.type === "file") {
-        MessageRepository.createFileMessage({
+        this.liveMessage = MessageRepository.createFileMessage({
           channelId: this.channelId,
           fileId: this.file.fileId,
           caption: this.text,
         });
       }
+
+      this.liveMessage?.on('dataError', err => {
+        console.log(err)
+      })
 
       this.reset();
     },
