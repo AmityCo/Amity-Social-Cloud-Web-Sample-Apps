@@ -1,0 +1,39 @@
+{
+  "name": "vue2-social-feed",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "comma-number": "^2.0.1",
+    "core-js": "^3.6.5",
+    "@amityco/js-sdk": "^5.4.0",
+    "email-validator": "^2.0.4",
+    "lodash": "^4.17.21",
+    "number-abbreviate": "^2.0.0",
+    "placeholder-loading": "^0.3.0",
+    "query-string": "^7.0.0",
+    "register-service-worker": "^1.7.1",
+    "time-ago": "^0.2.1",
+    "vue": "^2.6.11",
+    "vue-cookies": "^1.7.4",
+    "vue-pull-to": "^0.1.8",
+    "vue-router": "^3.2.0",
+    "vue-router-prefetch": "^1.6.2",
+    "vue-share-buttons": "^1.1.0",
+    "vue2-touch-events": "^3.2.1",
+    "vuex": "^3.6.2"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-pwa": "~4.5.0",
+    "@vue/cli-plugin-router": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "stylus": "^0.54.7",
+    "stylus-loader": "^3.0.2",
+    "vue-template-compiler": "^2.6.11"
+  }
+}

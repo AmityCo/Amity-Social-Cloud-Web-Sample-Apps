@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@amityco/js-sdk@5.3.1":
-  version "5.3.1"
-  resolved "https://registry.yarnpkg.com/@amityco/js-sdk/-/js-sdk-5.3.1.tgz#e2bf179f6a70c6846116bb49d6bda736186ffb86"
-  integrity sha512-B5O74hxjlw7DqyeOZlFdKYxStz19mgnf56b71VaGU1lzwipuP0W5BKtn7sa8MSHA3+YuVSz9hfFvwiiLvx5LFQ==
+"@amityco/js-sdk@^5.4.0":
+  version "5.4.0"
+  resolved "https://registry.yarnpkg.com/@amityco/js-sdk/-/js-sdk-5.4.0.tgz#dc15c03a41750531289f057119609ec99e3c705f"
+  integrity sha512-iiF2TqiNqM3WqSE2Fg1DwIwCRSArbSf6hHNf9vpOmSLVPSRl0r/AvPLVoxUdPNQj3DHzuqser4gcTVITPiV8lQ==
   dependencies:
     debug "^3.1.0"
     eko-flobx "^0.2.0"

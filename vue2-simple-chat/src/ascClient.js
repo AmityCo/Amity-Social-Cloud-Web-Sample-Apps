@@ -19,3 +19,7 @@ export const connectClient = async (userId) => {
     client.registerSession({ userId });
   });
 };
+
+client.on('dataError', err => {
+  console.log(err)
+})
