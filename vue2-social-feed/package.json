@@ -7,10 +7,13 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
+    "@amityco/js-sdk": "^5.4.0",
+    "@capacitor/android": "3.1.2",
+    "@capacitor/cli": "^3.1.2",
+    "@capacitor/core": "^3.1.2",
     "axios": "^0.21.1",
     "comma-number": "^2.0.1",
     "core-js": "^3.6.5",
-    "@amityco/js-sdk": "^5.4.0",
     "email-validator": "^2.0.4",
     "lodash": "^4.17.21",
     "number-abbreviate": "^2.0.0",

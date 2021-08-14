@@ -1,0 +1,7 @@
+{
+  "name": "Social Feed",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue"
+}

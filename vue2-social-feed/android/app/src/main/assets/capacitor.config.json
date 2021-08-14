@@ -1,0 +1,6 @@
+{
+	"appId": "com.amity.ionic.simplechat",
+	"appName": "Social Feed",
+	"webDir": "dist",
+	"bundledWebRuntime": false
+}
