@@ -1,0 +1,7 @@
+{
+    "name": "Simple Chat App",
+    "integrations": {
+      "capacitor": {}
+    },
+    "type": "react"
+  }
