@@ -15,14 +15,19 @@ export function MessageList({ channelId }) {
       channelId,
     });
 
-    collection.current.on("dataUpdated", setMessages);
-    collection.current.models && setMessages(collection.current.models);
+    collection.current.on("dataUpdated", (messages) => {
+      setMessages(messages.reverse());
+    });
+
+    if (collection.current.models) {
+      setMessages(collection.current.models.reverse());
+    }
 
     return () => collection.current.dispose();
   }, [channelId]);
 
   const onScroll = (e) => {
-    if (!collection.current.hasMore) return;
+    if (!collection.current.prevPage) return;
 
     const el = e.target;
 
@@ -30,7 +35,7 @@ export function MessageList({ channelId }) {
     const scroll = -el.scrollTop; // reversed because of the flex direction
 
     if (top - scroll <= 1) {
-      collection.current.nextPage();
+      collection.current.prevPage();
     }
   };
 

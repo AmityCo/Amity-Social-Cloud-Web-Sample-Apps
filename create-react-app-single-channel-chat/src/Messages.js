@@ -15,7 +15,9 @@ function Messages({ channelId }) {
     collection.current = new MessageRepository()
       .messagesForChannel({ channelId })
 
-    collection.current.on('dataUpdated', setMessages)
+    collection.current.on("dataUpdated", (messages) => {
+      setMessages(messages.reverse());
+    });
 
     return () => collection.current.dispose()
   }, [channelId])

@@ -38,7 +38,7 @@ export default {
     });
 
     this.liveCollection.on("dataUpdated", (messages) => {
-      this.messages = messages;
+      this.messages = messages.reverse();
       this.loading = false;
     });
 
@@ -53,7 +53,7 @@ export default {
 
   methods: {
     onscroll(e) {
-      if (!this.liveCollection.hasMore) return;
+      if (!this.liveCollection.prevPage) return;
 
       const el = this.$refs.messages;
 
@@ -62,7 +62,7 @@ export default {
 
       if (top - scroll <= 1) {
         this.loading = true;
-        this.liveCollection.nextPage();
+        this.liveCollection.prevPage();
       }
     },
   },
