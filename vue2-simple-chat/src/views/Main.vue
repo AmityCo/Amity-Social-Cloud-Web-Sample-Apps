@@ -21,7 +21,7 @@ import {
   ChannelMembership,
 } from "@amityco/js-sdk";
 
-const DEFAULT_CHANNEL_ID = "simple-chat-demo";
+const DEFAULT_CHANNEL_ID = "simple-chat-demo1";
 
 export default {
   components: { ChannelBrowser, ChatRoom },

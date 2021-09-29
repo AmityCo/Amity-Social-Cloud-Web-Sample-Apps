@@ -42,6 +42,9 @@ export default {
       this.loading = false;
     });
 
+    if (this.liveCollection.models?.length)
+      this.messages = this.liveCollection.models.reverse();
+
     this.liveCollection.on("dataError", (error) => {
       console.log("The message live collection encountered an error", error);
     });
