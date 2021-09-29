@@ -7,7 +7,7 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
-    "@amityco/js-sdk": "5.6.1",
+    "@amityco/js-sdk": "5.6.2",
     "core-js": "^3.6.5",
     "pretty-bytes": "^5.6.0",
     "tiny-human-time": "^1.2.0",
