@@ -1,8 +1,8 @@
 <template>
   <div v-if="!model"></div>
   <div v-else class="comment-preview">
-    <User v-if="model.userId" :id="model.userId" inline />
-    {{ model.text || model.data.text }}
+    <User v-if="model.userId" :id="model.userId" inline />&nbsp;
+    <mentionable-text :text="model.text || model.data.text" />
   </div>
 </template>
 
@@ -10,9 +10,10 @@
 import User from '@/components/User'
 
 import { CommentRepository } from '@amityco/js-sdk'
+import MentionableText from './MentionableText.vue'
 
 export default {
-  components: { User },
+  components: { MentionableText, User },
 
   props: {
     id: String,

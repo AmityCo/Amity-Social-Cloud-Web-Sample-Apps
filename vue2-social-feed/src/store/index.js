@@ -27,8 +27,9 @@ export default new VueX.Store({
       commit('setUser', client.currentUser.model)
     },
     async updateUserInfo({commit}, userInfo){
-      if(userInfo.displayName) client.setDisplayName(userInfo.displayName);
-      if(userInfo.description) client.setDescription(userInfo.description);
+      client.updateCurrentUser(userInfo);
+      // if(userInfo.displayName) client.setDisplayName(userInfo.displayName);
+      // if(userInfo.description) client.setDescription(userInfo.description);
     },
     async createPost({ state, commit }, { text, file }) {
       const { fileId } = await FileRepository.uploadFile({ file })

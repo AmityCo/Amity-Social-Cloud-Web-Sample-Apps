@@ -1,17 +1,19 @@
 <template>
   <div v-if="!model"></div>
   <div v-else class="child-post">
-    <Picture :id="model.data.fileId" />
+    <VideoPlayer v-if="model.dataType ==='video'" :id="model.data.videoFileId.original" />
+    <Picture v-else :id="model.data.fileId" />
   </div>
 </template>
 
 <script>
 import Picture from '@/components/Picture'
+import VideoPlayer from '@/components/VideoPlayer'
 
 import { PostRepository } from '@amityco/js-sdk'
 
 export default {
-  components: { Picture },
+  components: { Picture, VideoPlayer },
 
   props: ['id'],
 
@@ -21,7 +23,9 @@ export default {
 
   created() {
     this.liveObject = PostRepository.postForId(this.id)
-    this.liveObject.on('dataUpdated', model => this.model = model)
+    this.liveObject.once('dataUpdated', model => {
+      this.model = model;
+      })
     this.model = this.liveObject.model
   },
 

@@ -16,6 +16,7 @@ import UserProfile from '@/views/UserProfile'
 import UserPosts from '@/views/UserPosts'
 import MyProfile from '@/views/MyProfile'
 import EditProfile from '@/views/EditProfile'
+import StoryViewer from '@/views/StoryViewer'
 
 export default [{
   path: '/login',
@@ -51,6 +52,9 @@ export default [{
 }, {
   path: '/users/:userId/posts',
   component: UserPosts,
+}, {
+  path: '/stories/:userId',
+  component: StoryViewer,
 }, {
   path: '*',
   redirect: '/posts',

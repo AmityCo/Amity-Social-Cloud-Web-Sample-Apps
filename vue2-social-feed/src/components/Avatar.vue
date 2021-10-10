@@ -28,13 +28,11 @@ export default {
   width 2.5rem
   height 2.5rem
   border-radius 100%
-  border 2px solid
-  border-color var(--themeColor) !important
 
   img
     border-radius  100%
     border: solid 2px
-    border-color var(--schemeColor) !important
+    border-color var(--schemeColor)
 
   &.large img
     border solid 4px
@@ -47,7 +45,7 @@ export default {
 .avatar.large
   width 6rem
   height 6rem
-  border 3px solid
+  border 2px solid #38be8d;
 
 .avatar.inline
   display inline-block

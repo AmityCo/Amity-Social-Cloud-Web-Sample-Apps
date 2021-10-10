@@ -62,6 +62,7 @@ export default {
 
   created() {
     console.log("obj IS ",this.object);
+    console.log("ID IS ",this.id);
     // If object is not predefined, use the id props to retrieve comment
     if(!this.object){
       this.liveObject = CommentRepository.commentForId(this.id)

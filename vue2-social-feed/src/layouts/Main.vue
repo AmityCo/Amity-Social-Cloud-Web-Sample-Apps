@@ -20,6 +20,7 @@
         <slot name="navright" />
       </nav>
     </header>
+    <slot name="breadcrumb"/>
     <slot/>
     <Footer />
   </div>

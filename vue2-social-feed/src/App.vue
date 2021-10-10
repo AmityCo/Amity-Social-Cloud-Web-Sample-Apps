@@ -51,7 +51,7 @@ html, body, #app {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  touch-action: manipulation
+  touch-action: manipulation;
 }
 
 html, body, #app, input, button {
@@ -65,6 +65,7 @@ textarea {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   border: none;
   background: none;
+  font-size: 16px !important;
 }
 
 ul, li {
@@ -75,5 +76,27 @@ ul, li {
 
 .primary-color {
   color: #0094F4 !important;
+}
+.tooltip[x-placement^="bottom"]{
+  margin-left: 200px;
+}
+.tooltip-inner {
+  position: relative;
+  background: #f9f9f9;
+  color: #000;
+  padding: 5px;
+  border-radius: 5px;
+  box-shadow: 0 3px 3px #00000021;
+  margin-top: 6px;
+}
+
+.mention-item {
+  padding: 5px 5px;
+  font-size: 16px;
+}
+
+.mention-item.mention-selected {
+  background-color: #38be8d4a;
+  border-radius: 3px;
 }
 </style>

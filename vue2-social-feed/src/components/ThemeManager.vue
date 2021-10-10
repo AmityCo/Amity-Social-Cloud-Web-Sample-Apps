@@ -80,7 +80,7 @@ html, body, #app, input,button,textarea
   color:var(--textColor)
   fill: var(--textColor)
   .icon
-    fill: var(--textColor) !important
+    fill: var(--textColor)
   .border-top
     border-top: 1px solid var(--borderColor) !important
   .border-bottom
