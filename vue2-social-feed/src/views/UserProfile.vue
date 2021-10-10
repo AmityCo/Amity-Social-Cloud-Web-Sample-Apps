@@ -56,11 +56,11 @@ export default {
       })
     },
     refresh(loaded) {
-      console.log("REFING");
       this.liveObject?.dispose()
       // Query user information from repository
       this.liveObject = new UserRepository().userForId(this.id)
       this.liveObject.on('dataUpdated', model => this.model = model)
+      this.model = this.liveObject.model
 
       // Query user posts
       const liveFeed = FeedRepository.getUserFeed({userId: this.id});
@@ -68,7 +68,7 @@ export default {
         this.posts = posts;
         if(loaded)loaded();
       });
-      this.model = this.liveObject.model
+      this.posts = liveFeed.models
     }
   },
   created() {

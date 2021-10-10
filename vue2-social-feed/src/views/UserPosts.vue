@@ -56,6 +56,28 @@ export default {
     // Query user posts
     this.query = FeedRepository.getUserFeed({userId: this.id});
     this.query.on('dataUpdated', async models => {
+      this.setModels(models);
+    });
+    if(this.query.models){
+      this.setModels(this.query.models);
+    }
+  },
+
+  beforeDestroy() {
+    this.query?.dispose()
+  },
+
+  methods: {
+    onupload(files) {
+      const str = JSON.stringify(files)
+      const b64 = btoa(str)
+
+      this.$router.push({
+        path: '/create',
+        query: { data: b64 },
+      })
+    },
+    async setModels(models){
       // Filter only for image posts (posts with children)
       const postsWithChildren = models.filter(({ children }) => children.length)
 
@@ -81,23 +103,7 @@ export default {
       this.posts.push(
         ...postsWithImage.map(({ postId }) => postId)
       )
-    })
-  },
-
-  beforeDestroy() {
-    this.query?.dispose()
-  },
-
-  methods: {
-    onupload(files) {
-      const str = JSON.stringify(files)
-      const b64 = btoa(str)
-
-      this.$router.push({
-        path: '/create',
-        query: { data: b64 },
-      })
-    },
+    }
   },
 }
 </script>

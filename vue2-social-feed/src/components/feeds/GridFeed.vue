@@ -43,5 +43,7 @@ export default {
   div
     width: calc(33.3vw - .2rem);
     height: calc(33.3vw - .2rem);
+    overflow: hidden
+
 </style>
 

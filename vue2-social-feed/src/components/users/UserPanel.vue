@@ -1,7 +1,7 @@
 <template>
     <div class = "user-panel">
       <!-- <button class="border">Follow</button> -->
-      <button class="border">Message</button>
+      <button class="border">Follow</button>
     </div>
 </template>
 

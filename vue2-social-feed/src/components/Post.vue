@@ -42,6 +42,14 @@ export default {
     model: null,
   }),
 
+  created() {
+    this.liveObject = PostRepository.postForId(this.id)
+    this.liveObject.on('dataUpdated', model =>{
+      this.model = model
+    })
+    this.model = this.liveObject.model
+  },
+
   computed: {
     liked: ({ model }) => model?.myReactions.includes('like'),
     timeago: ({ model }) => ta.ago(model?.createdAt),
@@ -49,15 +57,6 @@ export default {
     likeplural: ({ model }) => model?.reactionsCount !== 1 ? 'likes' : 'like',
 
     comment: () => CommentPreview,
-  },
-
-  created() {
-    console.log("Loading post id ",this.id);
-    this.liveObject = PostRepository.postForId(this.id)
-    this.liveObject.on('dataUpdated', model =>{
-      this.model = model
-    })
-    this.model = this.liveObject.model
   },
 
   beforeDestroy() {

@@ -1,9 +1,9 @@
 <template>
   <div class="comments">
     <ul>
-      <li :key="id" v-for="id in comments">
-        <CommentPreview v-if="inline" :id="id" />
-        <Comment v-else :id="id" />
+      <li :key="comment.commentId" v-for="comment in comments">
+        <CommentPreview v-if="inline" :id="comment.commentId" />
+        <Comment v-else :id="comment.commentId" />
       </li>  
     </ul>
   </div>
@@ -12,6 +12,7 @@
 <script>
 import Comment from '@/components/Comment'
 import CommentPreview from '@/components/CommentPreview'
+import {asynchronize} from "../utils/LiveObjectHelper"
 
 import {
   CommentRepository
@@ -34,16 +35,13 @@ export default {
     parentId: null
   }),
 
-  created() {
-    this.commentQuery = CommentRepository.queryComments({
+  async created() {
+    this.comments = await asynchronize(CommentRepository.queryComments({
       referenceId: this.postId,
       referenceType: 'post',
       filterByParentId: true,
       last: this.count,
-    })
-    this.commentQuery.on('dataUpdated', async models => {
-      this.comments = models.reverse().map(({ commentId }) => commentId)
-    })
+    }));
   },
 
   beforeDestroy() {

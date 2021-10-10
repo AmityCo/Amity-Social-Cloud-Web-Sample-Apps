@@ -58,20 +58,22 @@ export default {
     },
     onupload(files) {
       console.log("Setting ",files[0].fileId);
-      client.setAvatar(files[0].fileId);
+      this.$store.dispatch('updateUserInfo', {
+        avatarFileId: files[0].fileId
+      })
     },
     onsubmit(){
-      console.log("MODEL ",this.model, " draft", this.draft);
+      // console.log("MODEL ",this.model, " draft", this.draft);
       let toBeSubmit = {};
       if(this.draft?.displayName !== this.model.displayName){
         // client.setDisplayName(this.draft.displayName)
         toBeSubmit.displayName = this.draft.displayName;
-        console.log("updating display name to ",this.draft.displayName)
+        // console.log("updating display name to ",this.draft.displayName)
       }
       if(this.draft?.description !== this.model.description){
         // client.setDescription(this.draft.description)
         toBeSubmit.description = this.draft.description;
-        console.log("updating description name to ",this.draft.description)
+        // console.log("updating description name to ",this.draft.description)
       }
       if(Object.keys(toBeSubmit).length > 0)
         this.$store.dispatch('updateUserInfo', toBeSubmit)

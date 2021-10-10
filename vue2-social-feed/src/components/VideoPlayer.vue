@@ -1,6 +1,6 @@
 <template>
-  <div :class="`${placeholder}-placeholder picture`">
-    <img v-if="model" :src="fileUrl" />
+  <div :class="`${placeholder}-placeholder video`">
+    <video v-if="model" :src="model.fileUrl" autoplay muted loop playsinline/>
   </div>
 </template>
 
@@ -35,9 +35,6 @@ export default {
       immediate: true,
     },
   },
-  computed: {
-      fileUrl: ({ model, size }) => model ? `${model.fileUrl}?size=${size}` : ''
-    },
 
 
   beforeDestroy() {
@@ -47,18 +44,18 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-.picture {
+.video {
   position: relative;
   background-size 100%
 
-  img {
+  video {
     width: 100%;
     height: 100%;
   }
 }
 
-.pictures {
-  img {
+.video {
+  video {
     max-height: calc(100vh - 150px);
     background: black;
     object-fit: contain;
@@ -71,8 +68,5 @@ export default {
 .user-placeholder
   background-image url('~@/assets/user_placeholder.png')
 
-.grid-feed .picture img{
-  object-fit: cover;
-}
 
 </style>

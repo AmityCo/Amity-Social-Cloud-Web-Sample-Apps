@@ -9,7 +9,7 @@ module.exports = {
   },
   pwa: {
     name: 'vue2-social-feed',
-    themeColor: '#4DBA87',
+    themeColor: '#FFFFFF',
     msTileColor: '#000000',
     appleMobileWebAppCapable: 'yes',
     appleMobileWebAppStatusBarStyle: 'default',
