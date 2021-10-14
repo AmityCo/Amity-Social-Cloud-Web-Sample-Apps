@@ -8,6 +8,7 @@
     />
     <div class="timeline-feed-container">
       <story-breadcrumb :userIds="users"/>
+      <HLSPlayer v-if="streamUrl" :streamUrl="streamUrl" :livechatUrl="livechatUrl"  />
       <ul>
         <li :key="id" v-for="id in posts">
           <Post :id="id" />
@@ -25,6 +26,8 @@ import UploadButton from "@/components/UploadButton";
 import LoaderTopBlock from "@/components/feeds/LoaderTopBlock";
 import StoryBreadcrumb from "@/components/stories/StoryBreadcrumb";
 import Post from "@/components/Post.vue";
+import HLSPlayer from '../HLSPlayer.vue';
+
 export default {
   components: {
     HomeIcon,
@@ -34,25 +37,28 @@ export default {
     LoaderTopBlock,
     StoryBreadcrumb,
     PullTo,
+    HLSPlayer
   },
   props: {
     users: Array,
     posts: Array,
+    streamUrl: String,
+    streamId: String
   },
   computed: {
     id: ({ $route }) => $route.params.userId,
     pullToConfig: () => PULL_TO_CONFIG,
-    postUserIds: ()=>{
-      console.log(this.posts);
-      return 
-    } 
+    livechatUrl({$store}){
+      console.log("THIS ",$store);
+      return `${process.env.VUE_APP_LIVECHAT_ROOT_URL}/?streamId=${this.streamId}&userId=${$store.state.user.userId}`
+    }
   },
   created() {},
   methods: {
     refresh(loaded) {
       this.$emit("refresh", loaded);
     },
-  },
+  }
 };
 </script>
 

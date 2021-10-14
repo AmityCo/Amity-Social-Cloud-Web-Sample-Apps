@@ -2,7 +2,7 @@
   <MainLayout class="posts">
     <!-- <router-link slot="navleft" to="/posts"><HomeIcon /></router-link> -->
     <!-- <router-link slot="navright" to="/conversations"><EnvelopeIcon /></router-link> -->
-    <TimelineFeed :posts="posts" :users="users" @refresh="refreshData" />
+    <TimelineFeed :posts="posts" :users="users" :streamUrl="streamUrl" :streamId="streamId" @refresh="refreshData" />
   </MainLayout>
 </template>
 
@@ -21,7 +21,7 @@ import { asynchronize } from "../utils/LiveObjectHelper";
 
 import Post from "@/components/Post.vue";
 
-import { FeedRepository } from "@amityco/js-sdk";
+import { FeedRepository, StreamRepository } from "@amityco/js-sdk";
 
 export default {
   components: {
@@ -40,6 +40,8 @@ export default {
   data: () => ({
     posts: [],
     users: [],
+    streamUrl: null,
+    streamId: null
   }),
   methods: {
     async refreshData(loaded) {
@@ -52,6 +54,15 @@ export default {
       );
       console.log("USERS: ", this.users);
       console.log("POSTS: ", models);
+
+      asynchronize(StreamRepository.queryStreams({isDeleted: false, statuses:['live']})).then(streams=>{
+        if(streams?.length > 0){
+          this.streamUrl = streams[0].watcherUrl.hls.url;
+          this.streamId = streams[0].streamId;
+          console.log("STREAMS: ", streams[0]);
+        }
+      })
+
       if (loaded) loaded();
     },
   },

@@ -6,14 +6,14 @@ import ASCClient, {
   PostRepository,
 } from '@amityco/js-sdk'
 
-const apiKey = "b0ecb95f6fd3a333493e8a1c540b158ad75c8de1bb333a2e";
-
+const apiKey = process.env.VUE_APP_ASC_API_KEY;
+console.log("PROCESS ",process.env);
 const client = ASCClient.create({ apiKey });
 Vue.use(VueX)
 
 export default new VueX.Store({
   state: () => ({
-    user: null,
+    user: null
   }),
   
   actions: {
