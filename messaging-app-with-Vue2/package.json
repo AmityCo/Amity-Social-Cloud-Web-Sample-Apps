@@ -1,5 +1,5 @@
 {
-  "name": "vue2-simple-chat",
+  "name": "@amityco/messaging-app-with-vue2",
   "version": "0.1.0",
   "private": true,
   "scripts": {
