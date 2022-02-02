@@ -1,6 +1,6 @@
 # VueJS simple chat
 
-[Try me on codesandbox!](https://codesandbox.io/s/github/AmityCo/Amity-Social-Cloud-Web-Sample-Apps/tree/main/vue2-simple-chat)
+[Try me on codesandbox!](https://codesandbox.io/s/github/AmityCo/Amity-Social-Cloud-Web-Sample-Apps/tree/main/messaging-app-with-Vue2)
 
 ## Stack used
 
