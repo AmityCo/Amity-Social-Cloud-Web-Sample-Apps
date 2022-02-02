@@ -1,0 +1,138 @@
+.MessageItem {
+  display: grid;
+  grid-template-columns: 2rem max-content;
+  grid-template-rows: 1rem 1rem 1fr min-content;
+  grid-template-areas:
+    "avatar displayname"
+    "avatar message"
+    ". message"
+    ". metadata";
+
+  grid-gap: 0 0.5rem;
+  padding: 0 1rem 0.5rem;
+}
+
+.MessageItem .Avatar {
+  grid-area: avatar;
+  overflow: hidden;
+  width: 2rem;
+  height: 2rem;
+  background: #ebecef;
+  border-radius: 2rem;
+}
+
+.MessageItem .DisplayName {
+  grid-area: displayname;
+  color: #636878;
+}
+
+.MessageItem >>> .SyncState,
+.MessageItem >>> .SyncState >>> svg {
+  display: inline-block;
+  color: currentColor;
+  font-size: 0.7rem;
+}
+
+.MessageItem >>> .SyncState {
+  position: relative;
+  top: 2px;
+  opacity: 0.5;
+}
+
+.MessageItem .Content {
+  grid-area: message;
+  margin: 0.5rem 0 0.25rem;
+  border-radius: 0 0.5rem 0.5rem 0.5rem;
+  overflow: hidden;
+}
+
+.MessageItem .Metadata {
+  grid-area: metadata;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: #636878;
+  font-size: 0.7rem;
+}
+.MessageItem .Metadata >>> .ReactionBar {
+  position: absolute;
+  right: 0.5rem;
+  top: -1rem;
+}
+
+.MessageItem >>> .Text,
+.MessageItem >>> .FileContent {
+  padding: 0.5rem;
+  background: #ebecef;
+}
+
+.MessageItem >>> img {
+  display: block;
+  width: 100%;
+  max-width: 15rem;
+  object-fit: contain;
+  object-position: center;
+}
+
+.MessageItem >>> .FileContent {
+  position: relative;
+  display: grid;
+  grid-template-columns: min-content auto;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+    "icon displayname"
+    "icon filesize";
+  align-items: center;
+
+  grid-gap: 0 0.75rem;
+  padding: 0.75rem 1rem 0.75rem 0.75rem;
+  color: inherit;
+  text-decoration: none;
+}
+
+.MessageItem >>> .FileContent >>> icon-attachment {
+  grid-area: icon;
+}
+
+.MessageItem >>> .FileContent >>> strong {
+  grid-area: displayname;
+  font-size: 0.9rem;
+}
+
+.MessageItem >>> .FileContent >>> span {
+  grid-area: filesize;
+  font-size: 0.8rem;
+}
+
+/*****************/
+
+.MessageItem.self {
+  grid-template-columns: max-content;
+  grid-template-rows: min-content 1fr min-content;
+  grid-template-areas:
+    "displayname"
+    "message"
+    "metadata";
+  justify-content: end;
+}
+
+.MessageItem.self .Avatar,
+.MessageItem.self .DisplayName {
+  display: none;
+}
+
+.MessageItem.self .Content {
+  border-radius: 0.5rem 0 0.5rem 0.5rem;
+  justify-self: end;
+}
+.MessageItem.self .Metadata {
+  justify-self: end;
+}
+
+.MessageItem.self >>> .Text,
+.MessageItem.self >>> .FileContent {
+  padding: 0.5rem;
+  background: var(--primary);
+  color: #fff;
+}

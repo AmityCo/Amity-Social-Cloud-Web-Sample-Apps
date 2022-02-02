@@ -1,0 +1,8 @@
+<div class="ChannelList" [ngClass]="{' top': top}" (scroll)="onScroll($event)">
+  <app-channel-item
+    *ngFor="let channel of channels; trackBy: channelId"
+    [channel]="channel"
+    [active]="channel.channelId === activeChannelId"
+    (clickEvent)="joinChannel($event)"
+  ></app-channel-item>
+</div>

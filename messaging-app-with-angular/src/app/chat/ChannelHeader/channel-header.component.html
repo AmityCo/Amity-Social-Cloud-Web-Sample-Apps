@@ -1,0 +1,9 @@
+<div class="ChannelHeader" *ngIf="channel">
+  <h3>
+    {{channel.displayName ? channel.displayName : channel.channelId}}
+  </h3>
+  <div *ngIf="channel?.memberCount > 0">
+    {{" • "}} {{channel?.memberCount}}
+    <icon-member></icon-member>
+  </div>
+</div>

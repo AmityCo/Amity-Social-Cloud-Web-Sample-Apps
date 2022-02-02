@@ -1,0 +1,20 @@
+.ChannelHeader {
+  display: flex;
+  align-items: baseline;
+  width: 100%;
+  padding: 1rem;
+  background: #fff;
+  border-bottom: 1px solid #ccd0d5;
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0.2);
+  font-size: 0.8rem;
+}
+
+.ChannelHeader h3 {
+  margin: 0;
+  margin-right: 0.5rem;
+  font-size: 1.17rem;
+}
+
+.ChannelHeader >>> svg {
+  margin-left: 0.1rem;
+}

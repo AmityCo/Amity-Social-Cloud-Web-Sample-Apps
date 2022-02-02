@@ -1,0 +1,34 @@
+<div class="Login">
+  <div class="Modal">
+    <icon-amity></icon-amity>
+
+    <h1>Connect with your favorite people</h1>
+
+    <form [formGroup]="loginForm" (submit)="onSubmit()">
+      <input
+        type="text"
+        name="username"
+        placeholder="Username"
+        autocomplete="username"
+        formControlName="name"
+        required
+      />
+
+      <input
+        type="password"
+        name="password"
+        placeholder="Password"
+        autocomplete="current-password"
+        formControlName="password"
+        required
+      />
+
+      <button type="submit">Continue</button>
+
+      <label>
+        <input #persistent type="checkbox" />
+        Keep me signed in
+      </label>
+    </form>
+  </div>
+</div>

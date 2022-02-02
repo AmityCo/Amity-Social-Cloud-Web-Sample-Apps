@@ -1,0 +1,7 @@
+<div class="container" [ngClass]="{'login':!userId}">
+  <app-login
+    *ngIf="!userId"
+    (formSubmittedEvent)="handleSubmit($event)"
+  ></app-login>
+  <app-chat *ngIf="userId"></app-chat>
+</div>

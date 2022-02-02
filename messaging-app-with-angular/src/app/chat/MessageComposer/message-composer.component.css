@@ -1,0 +1,54 @@
+.MessageComposer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 1rem 1rem 1rem 1rem;
+  border-top: 1px solid #ccd0d5;
+}
+
+.MessageComposer .files {
+  max-height: 200px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-gap: 5px;
+  margin-bottom: 1rem;
+}
+
+.MessageComposer form {
+  display: grid;
+  width: 100%;
+  grid-template-columns: min-content 1fr min-content;
+  grid-template-rows: 100%;
+  grid-gap: 0.5rem;
+}
+
+.MessageComposer .Uploaders {
+  flex: 0 0 auto;
+  display: flex;
+}
+
+.MessageComposer form input[type="text"] {
+  flex: 1 1 auto;
+  display: block;
+  width: 100%;
+  min-width: 0;
+  padding: 0.6rem 1.2rem;
+  border: 1px solid #ccd0d5;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+}
+
+.MessageComposer form button {
+  flex: 0 0 auto;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.MessageComposer form input[type="text"]:focus {
+  outline: none !important;
+  border: 1px solid var(--primary);
+  box-shadow: 0 0 10px var(--primary);
+}

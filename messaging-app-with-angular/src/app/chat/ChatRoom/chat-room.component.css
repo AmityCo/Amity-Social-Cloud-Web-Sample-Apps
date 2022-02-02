@@ -1,0 +1,17 @@
+.ChatRoom {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.ChatRoom app-channel-header,
+.ChatRoom app-message-composer {
+  flex: 0 0 auto;
+}
+
+.ChatRoom app-message-list {
+  flex: 1 1 auto;
+  overflow: auto;
+  display: flex;
+  flex-direction: column-reverse;
+}

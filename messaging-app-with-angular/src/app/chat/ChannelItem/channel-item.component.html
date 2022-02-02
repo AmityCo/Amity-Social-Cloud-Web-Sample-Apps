@@ -1,0 +1,21 @@
+<div
+  class="ChannelItem"
+  [ngClass]="{' active': active}"
+  (click)="joinChannel()"
+>
+  <div class="Avatar">
+    <app-image
+      *ngIf="channel.avatarFileId"
+      [fileId]="channel.avatarFileId"
+    ></app-image>
+  </div>
+  <div class="DisplayName">
+    {{channel.displayName ? channel.displayName : channel.channelId}}
+  </div>
+  <div class="Metadata">
+    {{timeString}} • {{channel.memberCount}} <icon-member></icon-member>
+  </div>
+  <div *ngIf="!!channel.unreadCount" class="UnreadCount">
+    {{channel.unreadCount}}
+  </div>
+</div>

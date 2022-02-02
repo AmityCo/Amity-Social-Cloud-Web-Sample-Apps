@@ -1,0 +1,12 @@
+<div class="ReactionBar">
+  <span
+    *ngFor="let reaction of REACTION_ICONS | keyvalue | removereactions:reactions; let i = index"
+    class="ReactionMedal"
+    [style.zIndex]="REACTION_ICONS.length - i"
+  >
+    <app-reaction-icon [iconClass]="reaction.value"></app-reaction-icon>
+  </span>
+  <span *ngIf="reactionsCount > 1" class="ReactionCount">
+    {{reactionsCount}}
+  </span>
+</div>

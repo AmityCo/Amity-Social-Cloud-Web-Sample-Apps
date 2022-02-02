@@ -1,0 +1,81 @@
+.ChannelItem {
+  display: grid;
+  grid-template-columns: min-content 1fr min-content;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+    "avatar displayname unreadcount"
+    "avatar metadata unreadcount";
+
+  grid-gap: 0 0.5rem;
+  align-items: center;
+  padding: 0.75rem 0.5rem;
+
+  background: #fff;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.ChannelItem.active {
+  background: #f5f5f5;
+}
+
+.ChannelItem:hover {
+  background: #f2f2f2;
+}
+
+.ChannelItem .Avatar {
+  grid-area: avatar;
+  overflow: hidden;
+  width: 3rem;
+  height: 3rem;
+  margin-right: 0.25rem;
+  background: #ebecef;
+  border-radius: 3rem;
+}
+
+.ChannelItem .DisplayName {
+  overflow: hidden;
+  grid-area: displayname;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ChannelItem .Metadata {
+  overflow: hidden;
+  grid-area: metadata;
+  display: flex;
+  align-items: baseline;
+  font-size: 0.8rem;
+  color: #888;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ChannelItem .UnreadCount {
+  grid-area: unreadcount;
+  align-self: center;
+  padding: 0.125rem 0.325rem;
+  background: #e00;
+  border-radius: 5rem;
+  color: #fff;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+@media (min-width: 480px) {
+  .ChannelItem .DisplayName,
+  .ChannelItem .Metadata,
+  .ChannelItem .UnreadCount {
+    display: none;
+  }
+}
+
+@media (min-width: 720px) {
+  .ChannelItem .DisplayName,
+  .ChannelItem .UnreadCount {
+    display: block;
+  }
+  .ChannelItem .Metadata {
+    display: flex;
+  }
+}

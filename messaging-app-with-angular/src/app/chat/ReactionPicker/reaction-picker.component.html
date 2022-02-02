@@ -1,0 +1,13 @@
+<span class="ReactionPicker">
+  <span (click)="toggleBar()">React</span>
+  <div class="ReactionButtons" *ngIf="open">
+    <button
+      *ngFor="let reaction of REACTION_ICONS | keyvalue"
+      class="ReactionButton"
+      [ngClass]="{'active': myReactions.includes(reaction.key)}"
+      (click)="toggleReaction(reaction.key)"
+    >
+      <app-reaction-icon [iconClass]="reaction.value"></app-reaction-icon>
+    </button>
+  </div>
+</span>

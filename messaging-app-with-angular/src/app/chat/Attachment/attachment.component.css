@@ -1,0 +1,45 @@
+.Attachment {
+  max-height: 4rem;
+  padding-bottom: 0.5rem;
+  overflow: auto;
+}
+
+.Attachment .Container {
+  position: relative;
+  display: inline-block;
+  height: 100%;
+}
+
+.Attachment >>> .ImageContent {
+  height: 100%;
+}
+
+.Attachment >>> .FileContent {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+  border: 1px solid #ccd0d5;
+  border-radius: 0.25rem;
+  font-size: 0.8rem;
+}
+
+.Attachment >>> button {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0.25rem;
+  right: 0.25rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  background: rgba(0, 0, 0, 0.3);
+  border: none;
+  border-radius: 4rem;
+  cursor: pointer;
+  color: #fff;
+}
+
+.Attachment >>> button:hover {
+  background: rgba(0, 0, 0, 0.6);
+}

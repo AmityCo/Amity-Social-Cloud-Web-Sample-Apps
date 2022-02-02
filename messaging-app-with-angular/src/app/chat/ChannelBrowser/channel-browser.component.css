@@ -1,0 +1,62 @@
+.ChannelBrowser {
+  z-index: 1;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+}
+
+.ChannelBrowser .Header {
+  flex: 0 0 auto;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-gap: 1rem;
+  margin: 0 1rem;
+  padding: 0.8rem 0;
+}
+
+.ChannelBrowser h2 {
+  margin: 0;
+}
+
+.ChannelBrowser input {
+  display: none;
+  width: 100%;
+  padding: 0.6rem 1.2rem;
+  border: 1px solid #ccd0d5;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+}
+
+.ChannelBrowser app-channel-list {
+  flex: 1 1 auto;
+  display: contents;
+}
+
+.ChannelBrowser >>> .ChannelList {
+  overflow: auto;
+}
+
+@media (min-width: 480px) {
+  .ChannelBrowser {
+    z-index: 1;
+    position: relative;
+    display: flex !important;
+    width: auto;
+    border-right: 1px solid #ccd0d5;
+  }
+}
+
+@media (min-width: 720px) {
+  .ChannelBrowser input {
+    display: block;
+  }
+}
+
+.ChannelBrowser input:focus {
+  outline: none !important;
+  border: 1px solid var(--primary);
+  box-shadow: 0 0 10px var(--primary);
+}

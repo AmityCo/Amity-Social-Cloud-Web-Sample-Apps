@@ -1,0 +1,12 @@
+<em class="SyncState" *ngIf="value === syncValues.Default">
+  Idle
+</em>
+<em class="SyncState" *ngIf="value === syncValues.Syncing">
+  <icon-syncing></icon-syncing>
+</em>
+<em class="SyncState" *ngIf="value === syncValues.Synced">
+  <icon-synced></icon-synced>
+</em>
+<em class="SyncState" *ngIf="value === syncValues.Error">
+  Error.
+</em>

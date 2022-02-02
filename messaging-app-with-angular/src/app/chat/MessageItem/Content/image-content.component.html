@@ -1,0 +1,8 @@
+<div *ngIf="sizedUrl">
+  <div class="Image">
+    <img [src]="sizedUrl" [alt]="data.caption" />
+  </div>
+  <div *ngIf="data.caption" class="Text">
+    <em>{{data.caption}}</em>
+  </div>
+</div>

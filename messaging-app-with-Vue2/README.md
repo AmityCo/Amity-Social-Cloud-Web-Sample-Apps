@@ -8,9 +8,9 @@
 
 ## Scope of demo
 
-From a simple `vue create XXX` boilerplate, we've added the minimal amount of code to create a single channel chat app.
+From a simple `vue create XXX` boilerplate, we've added the minimal amount of code to create a simple chat app.
 
-You will be able to see the typical use of live objects and live collections working with Vue, and the typical implementation for a chat app.
+You will be able to see the typical use of live objects and live collections working with react hooks, and the typical implementation for a chat app.
 
 ## Getting started
 

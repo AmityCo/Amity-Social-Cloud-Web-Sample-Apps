@@ -1,0 +1,43 @@
+<div class="MessageComposer">
+  <app-attachment
+    *ngIf="file"
+    [file]="file.model"
+    (onDelete)="resetFiles()"
+  ></app-attachment>
+
+  <form [formGroup]="chatForm" (submit)="onSubmit()">
+    <div class="Uploaders">
+      <button type="button" (click)="imageInput.click()">
+        <icon-image-upload></icon-image-upload>
+        <input
+          #imageInput
+          style="display: none;"
+          type="file"
+          accept="image/*"
+          (change)="handleFileInput($event.target.files)"
+        />
+      </button>
+      <button type="button" (click)="fileInput.click()">
+        <icon-file-upload></icon-file-upload>
+        <input
+          #fileInput
+          style="display: none;"
+          type="file"
+          accept="*/*"
+          (change)="handleFileInput($event.target.files)"
+        />
+      </button>
+    </div>
+    <input
+      #chatBox
+      type="text"
+      formControlName="message"
+      placeholder="Type something..."
+      autocomplete="off"
+      autoCorrect="off"
+    />
+    <button type="submit">
+      <icon-send></icon-send>
+    </button>
+  </form>
+</div>

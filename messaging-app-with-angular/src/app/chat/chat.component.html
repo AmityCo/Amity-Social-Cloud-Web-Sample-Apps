@@ -1,0 +1,11 @@
+<div class="Main" [ngClass]="{' overlay': overlay}">
+  <button (click)="toggleOverlay()">
+    {{overlay ? "..." : "╳"}}
+  </button>
+
+  <app-channel-browser
+    [activeChannelId]="channelId"
+    (clickEvent)="changeChannel($event)"
+  ></app-channel-browser>
+  <app-chat-room [channelId]="channelId"></app-chat-room>
+</div>

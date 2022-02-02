@@ -1,0 +1,17 @@
+<div class="ChannelBrowser">
+  <div class="Header">
+    <h2>Chats</h2>
+    <input
+      type="search"
+      name="search"
+      placeholder="Search a channel..."
+      (input)="handleSearchQuery($event)"
+    />
+  </div>
+
+  <app-channel-list
+    [activeChannelId]="activeChannelId"
+    [searchQuery]="searchQuery"
+    (clickEvent)="joinChannel($event)"
+  ></app-channel-list>
+</div>

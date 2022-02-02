@@ -1,0 +1,5 @@
+<a *ngIf="model" class="FileContent" [href]="model.fileUrl" download>
+  <icon-attachment></icon-attachment>
+  <strong>{{model.attributes.name}}</strong>
+  <span>{{prettyBytes(model.attributes.size)}}</span>
+</a>

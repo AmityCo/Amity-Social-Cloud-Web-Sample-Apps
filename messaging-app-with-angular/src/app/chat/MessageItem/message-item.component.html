@@ -1,0 +1,35 @@
+<div
+  class="{{ type }} MessageItem"
+  [ngClass]="{'self': msg.userId === currentUserId}"
+>
+  <div class="Avatar">
+    <app-image
+      *ngIf="msg.user.avatarFileId"
+      [fileId]="msg.user.avatarFileId"
+    ></app-image>
+  </div>
+
+  <div class="DisplayName">
+    {{msg.userId}}
+    <!-- {{msg.user.displayName ?? msg.user.userId ?? msg.userId}} -->
+  </div>
+
+  <div class="Content">
+    <template #content> </template>
+  </div>
+
+  <div class="Metadata">
+    <app-reaction-picker
+      [messageId]="msg.messageId"
+      [myReactions]="msg.myReactions"
+    ></app-reaction-picker>
+    {{" • "}}
+    <em>{{timeString}}</em>
+    <app-sync-state [value]="msg.syncState"></app-sync-state>
+    <app-reaction-bar
+      *ngIf="!!msg.reactionsCount"
+      [reactionsCount]="msg.reactionsCount"
+      [reactions]="msg.reactions"
+    ></app-reaction-bar>
+  </div>
+</div>

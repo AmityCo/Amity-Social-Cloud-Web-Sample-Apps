@@ -1,0 +1,45 @@
+.ReactionPicker {
+  position: relative;
+  color: #636878;
+  font-size: 0.7rem;
+}
+
+.ReactionPicker > span {
+  cursor: pointer;
+}
+
+.ReactionPicker .ReactionButtons {
+  z-index: 5;
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  display: flex;
+  align-items: center;
+  grid-gap: 0.75rem;
+  padding: 0.5rem 0.75rem 0.5rem 0.875rem;
+  background: #fff;
+  border-radius: 4rem;
+  box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.2);
+  transform: translateX(-50%);
+  color: #898e9e;
+}
+
+.ReactionPicker .ReactionButtons > button {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: inherit;
+  transition: all 0.2s;
+}
+
+.ReactionPicker .ReactionButtons > button.active {
+  color: var(--primary);
+}
+
+.ReactionPicker .ReactionButtons > button:hover {
+  opacity: 0.5;
+}
