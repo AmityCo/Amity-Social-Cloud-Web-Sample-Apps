@@ -1,6 +1,6 @@
 # CRA simple chat
 
-[Try me on codesandbox!](https://codesandbox.io/s/github/AmityCo/Amity-Social-Cloud-Web-Sample-Apps/tree/main/create-react-app-simple-chat)
+[Try me on codesandbox!](https://codesandbox.io/s/github/AmityCo/Amity-Social-Cloud-Web-Sample-Apps/tree/main/messaging-app-with-CRA)
 
 ## Stack used
 
